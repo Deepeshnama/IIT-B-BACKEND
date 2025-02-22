@@ -29,7 +29,7 @@ exports.updateMember = async (req, res) => {
 exports.getMemberHistory = async (req, res) => {
   try {
     const { id } = req.params;
-    const history = await History.find({ user: id }).populate("book", "title");
+    const history = await History.find({ user: id }).populate("Book", "title");
     res.json(history);
   } catch (err) {
     res.status(500).json({ error: err.message });
